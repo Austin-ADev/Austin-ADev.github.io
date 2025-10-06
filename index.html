@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Austin dev — Cosmic Hub</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-color:#0a0f24;
+    --primary-color:#3d9df6;
+    --accent-color:#19ffa9;
+    --highlight-color:#ffc947;
+    --text-color:#ffffff;
+  }
+  * {margin:0;padding:0;box-sizing:border-box;}
+  html {scroll-behavior:smooth;}
+  body {font-family:'Inter',sans-serif; background:var(--bg-color); color:var(--text-color); overflow-x:hidden;}
+
+  /* Canvas full screen */
+  #particle-canvas {position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;}
+
+  /* Header / Nav */
+  header {
+    position: fixed; top:0; left:0; width:100%;
+    background: rgba(10,15,36,0.7);
+    backdrop-filter: blur(10px);
+    display:flex; justify-content:space-between; align-items:center;
+    padding:1rem 2rem; z-index:1000;
+  }
+  header a {color:var(--text-color); text-decoration:none; margin-left:2rem; font-weight:bold; transition:.3s;}
+  header a:hover {color:var(--accent-color);}
+
+  section {min-height:100vh; padding:6rem 2rem; display:flex; flex-direction:column; justify-content:center; align-items:center;}
+  h1,h2,h3 {font-family:'Orbitron',sans-serif; margin-bottom:1rem;}
+  ul {list-style:none; padding-left:0; margin-top:1rem;}
+  li {margin-bottom:.5rem;}
+
+  .glass-panel {background: rgba(10,15,36,0.4); backdrop-filter:blur(10px); border-radius:16px; padding:2rem; margin:1rem 0; box-shadow:0 0 20px rgba(61,157,246,0.3); width:90%; max-width:1000px; text-align:center;}
+
+  .btn {padding:.8rem 1.5rem; border:none; border-radius:10px; background:var(--primary-color); color:var(--text-color); cursor:pointer; font-weight:bold; transition:.3s; margin-top:1rem;}
+  .btn:hover {background:var(--accent-color); box-shadow:0 0 20px var(--accent-color);}
+
+  .card {background: rgba(255,255,255,0.05); border-radius:16px; padding:1rem; margin:1rem; transition:.3s; width:250px; text-align:center;}
+  .card:hover {transform: translateY(-5px); box-shadow:0 0 20px var(--primary-color);}
+  .cards {display:flex; flex-wrap:wrap; justify-content:center;}
+
+  footer {text-align:center; padding:1rem; background: rgba(10,15,36,0.7); backdrop-filter:blur(10px);}
+</style>
+</head>
+<body>
+
+<!-- Canvas for Built-in Particles -->
+<canvas id="particle-canvas"></canvas>
+
+<!-- Header / Navigation -->
+<header>
+  <h1>Austin dev</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#blog">Blog</a>
+    <a href="#changelog">Chanalog</a>
+  </nav>
+</header>
+
+<!-- Home Section -->
+<section id="home">
+  <div class="glass-panel">
+    <h1>Welcome to my Cosmic Hub</h1>
+    <p>The flagship portal for all my projects, updates, and creations.</p>
+    <a href="#projects" class="btn">Explore Projects</a>
+  </div>
+</section>
+
+<!-- About Me Section -->
+<section id="about">
+  <div class="glass-panel">
+    <h2>About Me</h2>
+    <p>Hello! I'm Austin dev — a developer, creator, and visionary. This is my digital universe where I share my projects, blogs, and changelogs.</p>
+    <h3>My Journey</h3>
+    <ul>
+      <li>Started coding at age 12</li>
+      <li>Created games, websites, and dev tools</li>
+      <li>Building the Nexus game universe</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+  <div class="glass-panel">
+    <h2>Projects</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>AnderOS</h3>
+        <p>Experimental OS & ecosystem</p>
+        <a href="https://austin-adev.github.io/anderos-project/" class="btn">Launch</a>
+      </div>
+      <div class="card">
+        <h3>Free Websites</h3>
+        <p>Collection of free web templates</p>
+        <a href="https://austin-adev.github.io/free-websites/index.html" class="btn">Launch</a>
+      </div>
+      <div class="card">
+        <h3>Nexus</h3>
+        <p>Multidimensional game universe</p>
+        <a href="https://austin-adev.github.io/Nexus/" class="btn">Launch</a>
+      </div>
+      <div class="card">
+        <h3>Spin The Wheel</h3>
+        <p>Interactive wheel game</p>
+        <a href="https://austin-adev.github.io/spin-the-wheel/" class="btn">Launch</a>
+      </div>
+      <div class="card">
+        <h3>AnderRig</h3>
+        <p>Rig/graphics interface</p>
+        <a href="https://austin-adev.github.io/anderrig/index.html" class="btn">Launch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Blog Section -->
+<section id="blog">
+  <div class="glass-panel">
+    <h2>Blog</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Blog Post 1</h3>
+        <p>Short summary of blog content…</p>
+        <a href="#" class="btn">Read More</a>
+      </div>
+      <div class="card">
+        <h3>Blog Post 2</h3>
+        <p>Short summary of blog content…</p>
+        <a href="#" class="btn">Read More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Changelog Section -->
+<section id="changelog">
+  <div class="glass-panel">
+    <h2>Chanalog</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Nexus v1.0</h3>
+        <p>Initial release — core mechanics, first dimension unlocked</p>
+      </div>
+      <div class="card">
+        <h3>AnderOS v0.5</h3>
+        <p>New UI enhancements and system stability improvements</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 Austin dev — Built by me
+</footer>
+
+<script>
+  // Built-in Particle System
+  const canvas = document.getElementById('particle-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const particleCount = 80;
+  const particles = [];
+
+  function Particle() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 3 + 1;
+    this.speedX = (Math.random() - 0.5) * 1.5;
+    this.speedY = (Math.random() - 0.5) * 1.5;
+    this.color = 'rgba(61,157,246,0.7)';
+  }
+
+  Particle.prototype.update = function() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if (this.x > canvas.width) this.x = 0;
+    if (this.x < 0) this.x = canvas.width;
+    if (this.y > canvas.height) this.y = 0;
+    if (this.y < 0) this.y = canvas.height;
+  };
+
+  Particle.prototype.draw = function() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+  };
+
+  for (let i = 0; i < particleCount; i++) {
+    particles.push(new Particle());
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      p.update();
+      p.draw();
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+</script>
+
+</body>
+</html>
