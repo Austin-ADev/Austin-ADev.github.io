@@ -147,6 +147,11 @@
       h1, h2, h3 { font-size: 1.5rem; }
       p { font-size: 1rem; }
     }
+    .btn:disabled,
+    .btn[aria-disabled="true"] {
+      cursor: not-allowed;   /* Changes cursor to indicate it's disabled */
+      opacity: 0.6;          /* Fades the appearance */
+    }
   </style>
 </head>
 <body>
@@ -171,44 +176,40 @@
   </nav>
 </header>
 
-<section id="by-category">
-  <div class="glass-panel">
-    <h2>Projects By Category</h2>
-    <p>Each project is a uniquely crafted executable.</p>
-    <div class="cards">
-      <div class="card">
-        <h3>Games</h3>
-        <p>All Projects Related To Games In Some Way.</p>
-        <a href="/games/" class="btn">Launch</a>
-      </div>
-      <div class="card">
-        <h3>Web</h3>
-        <p>All Projects Related To Web Applications.</p>
-        <a href="/web/" class="btn">Launch</a>
-      </div>
-      <div class="card">
-        <h3>Applications</h3>
-        <p>All Projects Related To Applications.</p>
-        <a href="/applications/" class="btn">Launch</a>
-      </div>
-      <div class="card">
-        <h3>System</h3>
-        <p>All Projects Related To OSes, systems, etc.</p>
-        <a href="/system/" class="btn">Launch</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="by-date">
+<section id="projects-by-date">
   <div class="glass-panel">
     <h2>Projects By Date</h2>
     <p>Each project is a uniquely crafted executable.</p>
     <div class="cards">
       <div class="card">
-        <h3>Projects 2025-2026</h3>
-        <p>Collection Of Projects Dating 2025-2026</p>
-        <a href="/2025-2026/" class="btn">Launch</a>
+        <h3>ADev Launcher</h3>
+        <p>A game launcher that allows you to launch ADev Studio games. Also, it can launch any executable for your system.</p>
+        <p>Status: v1.0</p>
+        <a class="btn" aria-disabled="true" role="button">Launch</a>
+      </div>
+      <div class="card">
+        <h3>This website</h3>
+        <p>This website your on right now. It needs updating every now and then.</p>
+        <p>Status: Doesn't need updating</p>
+        <a href="https://austin-adev.github.io/home/" class="btn">Launch</a>
+      </div>
+      <div class="card">
+        <h3>All In A Days Work</h3>
+        <p>A office hostage style game where must escape a mass elimination of your company</p>
+        <p>Status: In Development</p>
+        <a class="btn" aria-disabled="true" role="button">Launch</a>
+      </div>
+       <div class="card">
+        <h3>Aurium</h3>
+        <p>A custom AI bot I'm making to learn Machine Learning.</p>
+        <p>Status: Development Unstarted</p>
+        <a class="btn" aria-disabled="true" role="button">Launch</a>
+      </div>
+      <div class="card">
+        <h3>AnderOS</h3>
+        <p>A fully custom, personal OS I'm developing based on Linux.</p>
+        <p>Status: Status Awaiting</p>
+        <a href="https://austin-adev.github.io/anderos-project/" class="btn">Launch</a>
       </div>
     </div>
   </div>
@@ -219,6 +220,15 @@
 </footer>
 
 <script>
+
+  // Prevent clicks on any link with aria-disabled="true"
+document.addEventListener('click', function(e) {
+  if (e.target.matches('a.btn[aria-disabled="true"]')) {
+    e.preventDefault(); // Stops the navigation
+  }
+});
+
+
   const canvas = document.getElementById('particle-canvas');
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
